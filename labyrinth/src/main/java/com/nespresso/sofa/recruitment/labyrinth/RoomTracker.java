@@ -10,7 +10,7 @@ public class RoomTracker {
 	private final Gates gates;
 	private final List<Room> path;
 
-	public RoomTracker(String... gates) {
+	public RoomTracker(List<Gate> gates) {
 		this.gates = new Gates(gates);
 		this.path = new ArrayList<>();
 	}

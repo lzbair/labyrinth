@@ -8,7 +8,7 @@ public class Labyrinth {
 	private final RoomTracker roomTracker;
 
 	public Labyrinth(String... gates) {
-		this.roomTracker = new RoomTracker(gates);
+		this.roomTracker = new RoomTracker(GatesFactory.create(gates));
 	}
 
 	

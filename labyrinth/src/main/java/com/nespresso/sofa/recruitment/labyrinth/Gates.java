@@ -10,8 +10,8 @@ import com.google.common.collect.Iterables;
 public class Gates {
 	private final List<Gate> gates;
 
-	public Gates(String... gates) {
-		this.gates = unmodifiableList(GatesFactory.create(gates));
+	public Gates(List<Gate> gates) {
+		this.gates = unmodifiableList(gates);
 	}
 
 	public boolean canCross(Room source, Room target) {
