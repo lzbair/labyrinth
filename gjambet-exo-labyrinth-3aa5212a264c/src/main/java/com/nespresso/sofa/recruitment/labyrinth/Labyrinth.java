@@ -1,17 +1,14 @@
 package com.nespresso.sofa.recruitment.labyrinth;
 
-import java.math.BigDecimal;
 
 
 public class Labyrinth {
 	
 
-	private final Gates gates;
 	private final RoomTracker roomTracker;
 
 	public Labyrinth(String... gates) {
-		this.gates = new Gates(gates);
-		this.roomTracker = new RoomTracker();
+		this.roomTracker = new RoomTracker(gates);
 	}
 
 	
@@ -22,17 +19,17 @@ public class Labyrinth {
 	}
 
 	public void walkTo(String id) {
-		roomTracker.walkTo(new Room(id), this.gates);
+		roomTracker.walkTo(new Room(id));
 		
 	}
 
 	public void closeLastDoor() {
-		roomTracker.closeLastDoor(this.gates);
+		roomTracker.closeLastDoor();
 		
 	}
 
 	public String readSensors() {
-		return roomTracker.readSensors(this.gates);
+		return roomTracker.readSensors();
 	}
 
 	

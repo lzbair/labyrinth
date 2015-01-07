@@ -10,14 +10,14 @@ public class Gate {
 
 	private final List<Room> rooms;
 	private State currentState = State.OPEN;
-	private final boolean isMonitored = false;
+	private final boolean isMonitored;
 
 	public Gate(Room r1, Room r2) {
-		this.rooms = unmodifiableList((Arrays.asList(r1, r2)));
+		this(r1, r2, false);
 	}
 	
 	public Gate(Room r1, Room r2, boolean isMonitored) {
-		this.Gate(r1, r2);
+		this.rooms = unmodifiableList((Arrays.asList(r1, r2)));
 		this.isMonitored = isMonitored;
 	}
 
@@ -27,12 +27,6 @@ public class Gate {
 			throw new DoorAlreadyClosedException();
 		}
 		this.currentState = State.CLOSED;
-	}
-
-	@Override
-	public String toString() {
-		return new StringBuilder().append(rooms.get(0)).append(rooms.get(1))
-				.toString();
 	}
 
 	@Override
@@ -64,7 +58,10 @@ public class Gate {
 	}
 
 	public String readSensor() {
-		// TODO Auto-generated method stub
+		if(this.isMonitored){
+			return new StringBuilder().append(rooms.get(0)).append(rooms.get(1))
+					.toString();
+		}
 		return null;
 	}
 }

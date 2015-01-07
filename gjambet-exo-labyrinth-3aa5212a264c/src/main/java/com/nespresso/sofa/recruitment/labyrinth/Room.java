@@ -8,6 +8,10 @@ public class Room {
 		this.identifier = identifier;
 	}
 
+	@Override
+	public String toString() {
+		return this.identifier;
+	}
 
 	@Override
 	public boolean equals(Object obj) {
